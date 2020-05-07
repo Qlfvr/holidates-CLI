@@ -68,7 +68,7 @@ function getHolidays(country, spinner) {
             console.log(country);
         });
     } else {
-        console.log(chalk.red("\nERROR : You need to enter a valid country name") + `\nEnter ${chalk.blue("holidays ls")} to see the list of available countries.\n`);
+        console.log(chalk.red("\nERROR : You need to enter a valid country name") + `\nEnter ${chalk.blue("holidates ls")} to see the list of available countries.\n`);
 
     }
 })();
