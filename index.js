@@ -17,6 +17,7 @@ async function getCountries() {
     }
 }
 
+function getHolidays(country, spinner) {
 
 
 console.log(supportedCountries);
