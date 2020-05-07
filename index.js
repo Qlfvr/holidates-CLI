@@ -37,17 +37,16 @@ function myNodeCLITool(country) {
     axios.get(`https://date.nager.at/api/v2/publicholidays/${year}/${countryCode}`)
         .then(function (response) {
             // handle success
+            console.log("\n");
 
-            console.log(`\n
-            *******************************************
-            The Holliday for this year in ${country} are : 
-            *******************************************
-            \n
-            `);
+            console.log(boxen(chalk.bold(`Holliday for this year in ${country} are : `), {
+                padding: 1,
+                borderStyle: 'round'
+            }));
             const dataSet = response.data
             dataSet.forEach(data => {
                 date = new Date(data.date);
-                console.log(data.name + " : " + date.toLocaleDateString("fr-FR") + " \n ");
+                console.log(chalk.bold(data.name) + " : " + date.toLocaleDateString("fr-FR") + " \n ");
             });
         })
         .catch(function (error) {
