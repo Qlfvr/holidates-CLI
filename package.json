@@ -21,6 +21,9 @@
     "homepage": "https://github.com/Qlfvr/nodetest-CLI#readme",
     "dependencies": {
         "axios": "^0.19.2",
-        "country-list": "^2.2.0"
+        "boxen": "^4.2.0",
+        "chalk": "^4.0.0",
+        "country-list": "^2.2.0",
+        "ora": "^4.0.4"
     }
 }
