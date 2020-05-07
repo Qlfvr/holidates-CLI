@@ -12,21 +12,10 @@ async function getCountries() {
         let array = data.map(({value}) => value.toLowerCase());
         return array;
 
-
-let promise = axios.get(`https://date.nager.at/Api/v2/AvailableCountries`)
-let array = []
-
-let supportedCountries = promise.then(function (response) {
-        response.data.forEach(element => {
-            array.push(element.value);
-            // console.log(array);
-            return array
-        });
-    })
-    .catch(function (error) {
-        // handle error
+    } catch (error) {
         console.log(error);
-    })
+    }
+}
 
 
 
