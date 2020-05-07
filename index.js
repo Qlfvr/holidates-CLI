@@ -19,16 +19,6 @@ async function getCountries() {
 
 function getHolidays(country, spinner) {
 
-
-console.log(supportedCountries);
-
-
-
-
-
-
-function myNodeCLITool(country) {
-
     today = new Date()
     year = today.getFullYear()
     countryCode = getCode(country)
@@ -54,17 +44,31 @@ function myNodeCLITool(country) {
             console.log("error");
         })
         .finally(function () {
-            // always executed
+            spinner.stop();
         });
 }
 
-if ((process.argv[2]) !== undefined) {
-    myNodeCLITool(process.argv[2])
-} else {
-    console.log("You need to enter a valid country name");
-}
+(async () => {
+    const countries = await getCountries();
+    let arg = "";
 
+    if (process.argv[2] !== undefined) {
+        arg = process.argv[2];
+        console.log(arg);
+    }
 
+    if (countries.includes(arg.toLowerCase())) {
+        const spinner = ora('Loading holidays...')
+        spinner.start()
+        setTimeout(() => {
+            getHolidays(process.argv[2], spinner)
+        }, 1000); // wait to show spinner
+    } else if (process.argv[2] === "ls") {
+        countries.forEach(country => {
+            console.log(country);
+        });
+    } else {
+        console.log(chalk.red("\nERROR : You need to enter a valid country name") + `\nEnter ${chalk.blue("holidays ls")} to see the list of available countries.\n`);
 
-
-// console.log(countries);
+    }
+})();
