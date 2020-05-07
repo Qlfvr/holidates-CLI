@@ -1,14 +1,35 @@
 #!/usr/bin/env node
-
-
-
-// import method from country-list
+ // import method from country-list
 const {
     getCode,
     getName
 } = require('country-list');
 
 const axios = require('axios').default;
+
+
+
+let promise = axios.get(`https://date.nager.at/Api/v2/AvailableCountries`)
+let array = []
+
+let supportedCountries = promise.then(function (response) {
+        response.data.forEach(element => {
+            array.push(element.value);
+            // console.log(array);
+            return array
+        });
+    })
+    .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
+
+
+
+console.log(supportedCountries);
+
+
+
 
 
 
@@ -29,50 +50,28 @@ function myNodeCLITool(country) {
             *******************************************
             \n
             `);
-
-
             const dataSet = response.data
-
             dataSet.forEach(data => {
-
                 date = new Date(data.date);
-
                 console.log(data.name + " : " + date.toLocaleDateString("fr-FR") + " \n ");
-
-
             });
-
         })
         .catch(function (error) {
             // handle error
-            console.log(error);
+            console.log("error");
         })
         .finally(function () {
             // always executed
         });
-
-
 }
 
-myNodeCLITool("Belgium")
+if ((process.argv[2]) !== undefined) {
+    myNodeCLITool(process.argv[2])
+} else {
+    console.log("You need to enter a valid country name");
+}
 
 
 
-// today = new Date()
-// year = today.getFullYear()
-// countryCode = getCode("belgium")
 
-
-// // Make a request for a user with a given ID
-// axios.get(`https://date.nager.at/api/v2/publicholidays/${year}/${countryCode}`)
-//     .then(function (response) {
-//         // handle success
-//         console.log(response);
-//     })
-//     .catch(function (error) {
-//         // handle error
-//         console.log(error);
-//     })
-//     .finally(function () {
-//         // always executed
-//     });
+// console.log(countries);

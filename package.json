@@ -1,23 +1,26 @@
 {
-  "name": "nodetest-cli",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Qlfvr/nodetest-CLI.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Qlfvr/nodetest-CLI/issues"
-  },
-  "homepage": "https://github.com/Qlfvr/nodetest-CLI#readme",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "country-list": "^2.2.0"
-  }
+    "name": "nodetest-cli",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "bin": {
+        "holidays": "./index.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Qlfvr/nodetest-CLI.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Qlfvr/nodetest-CLI/issues"
+    },
+    "homepage": "https://github.com/Qlfvr/nodetest-CLI#readme",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "country-list": "^2.2.0"
+    }
 }
