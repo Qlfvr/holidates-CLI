@@ -1,12 +1,16 @@
 #!/usr/bin/env node
- // import method from country-list
-const {
-    getCode,
-    getName
-} = require('country-list');
+ // import dependencies
+ const {getCode} = require('country-list');
+ const axios = require('axios').default;
+ const ora = require('ora');
+ const boxen = require('boxen');
+ const chalk = require("chalk");
 
-const axios = require('axios').default;
-
+async function getCountries() {
+    try {
+        let {data} = await axios.get(`https://date.nager.at/Api/v2/AvailableCountries`);
+        let array = data.map(({value}) => value.toLowerCase());
+        return array;
 
 
 let promise = axios.get(`https://date.nager.at/Api/v2/AvailableCountries`)
