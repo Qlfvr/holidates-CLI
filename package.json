@@ -1,5 +1,5 @@
 {
-    "name": "nodetest-cli",
+    "name": "@qlfvr/holidates-cli",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -11,14 +11,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Qlfvr/nodetest-CLI.git"
+        "url": "git+https://github.com/Qlfvr/holidates-cli"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Qlfvr/nodetest-CLI/issues"
+        "url": "https://github.com/Qlfvr/holidates-cli/issues"
     },
-    "homepage": "https://github.com/Qlfvr/nodetest-CLI#readme",
+    "homepage": "https://github.com/Qlfvr/holidates-cli#readme",
     "dependencies": {
         "axios": "^0.19.2",
         "boxen": "^4.2.0",
