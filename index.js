@@ -9,7 +9,7 @@
 async function getCountries() {
     try {
         let {data} = await axios.get(`https://date.nager.at/Api/v2/AvailableCountries`);
-        let array = data.map(({value}) => value.toLowerCase());
+        let array = data.map(({value}) => value.toUpperCase());
         return array;
 
     } catch (error) {
@@ -17,10 +17,14 @@ async function getCountries() {
     }
 }
 
-function getHolidays(country, spinner) {
+function getHolidays(country, year, spinner) {
 
-    today = new Date()
-    year = today.getFullYear()
+
+    if (year === undefined) {
+        let today = new Date()
+        year = today.getFullYear()
+    }
+
     countryCode = getCode(country)
 
     // Make a request for a user with a given ID
@@ -29,7 +33,7 @@ function getHolidays(country, spinner) {
             // handle success
             console.log("\n");
 
-            console.log(boxen(chalk.bold(`Holliday for this year in ${country} are : `), {
+            console.log(boxen(chalk.bold(`Holliday in ${year} in ${country} are : `), {
                 padding: 1,
                 borderStyle: 'round'
             }));
@@ -53,15 +57,14 @@ function getHolidays(country, spinner) {
     let arg = "";
 
     if (process.argv[2] !== undefined) {
-        arg = process.argv[2];
-        console.log(arg);
+        arg = process.argv[2].toUpperCase();
     }
 
-    if (countries.includes(arg.toLowerCase())) {
+    if (countries.includes(arg)) {
         const spinner = ora('Loading holidays...')
         spinner.start()
         setTimeout(() => {
-            getHolidays(process.argv[2], spinner)
+            getHolidays(arg, process.argv[3] ,spinner)
         }, 1000); // wait to show spinner
     } else if (process.argv[2] === "ls") {
         countries.forEach(country => {
