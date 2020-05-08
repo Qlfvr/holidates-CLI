@@ -31,7 +31,7 @@ I can't see why you would want to install **holidate-cli** globally... I recomma
 
 To do so, instead of using `holidates` command, use `npx @qlfvr/holidates`:
 
-	npx @qlfvr/holidates [country] [year]
+	npx @qlfvr/holidates-cli [country] [year]
 
 
 
