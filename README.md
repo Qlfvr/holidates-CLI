@@ -1,8 +1,37 @@
-# nodetest-CLI
+# holidates-CLI
 
-You will code a command line tool that will take a country name as parameter, like this:
 
-```$ myNodeCLITool Belgium```
+**Holidate-CLI** is my very first NodeJS "app", it is a command-line based app to show the holidays of a country using [Nager API](https://date.nager.at/Api)
 
-The tool will verify that the parameter is a well-formatted country name, transform it onto a two-letters country code, then perform an HTTP request to the API of the nager.date service, like explained here.
-You will show the results (a list of holidays dates for the current year) in a readable way in the terminal.
+## About
+
+As *Junior developer* learning at  **BeCode**, this project is a small introduction to learning NodeJS and npm before diving into React. 
+
+## Installation
+
+You must have [**node.js**](https://nodejs.org/en/) installed on your machine.
+
+Simply run the following command to install the **holidate-CLI**:
+
+	npm install -g @qlfvr/holidates-CLI
+
+## Usage
+
+The command use this syntax:
+
+    holidates [country] [year]
+
+If you want to show available  countries, use ls as argument
+
+    holidates ls
+    
+### 🎉 _Recommanded:_ use `npx`
+
+I can't see why you would want to install **holidate-CLI** globally... I recommand you to use `npx` instead....
+
+To do so, instead of using `holidates` command, use `npx @qlfvr/holidates`:
+
+	npx @qlfvr/holidates [country] [year]
+
+
+
